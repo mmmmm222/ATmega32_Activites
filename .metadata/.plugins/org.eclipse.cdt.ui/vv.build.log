@@ -1,0 +1,8 @@
+01:59:38 **** Rebuild of configuration Debug for project vv ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o vvv.o "..\\vvv.c" 
+C:\Users\moali\AppData\Local\Temp\ccOvqHOj.s: Assembler messages:
+C:\Users\moali\AppData\Local\Temp\ccOvqHOj.s:16: Error: invalid instruction suffix for `push'
+
+01:59:39 Build Finished (took 94ms)
+

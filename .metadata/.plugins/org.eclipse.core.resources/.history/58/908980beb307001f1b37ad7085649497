@@ -1,0 +1,51 @@
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
+#include "DIO_interface.h"
+#include "PORT_interface.h"
+#include "ADC_interface.h"
+#include "CLCD_interface.h"
+#include "GIE_interface.h"
+#include "util/delay.h"
+
+void Display_ch0(void);
+void Display_ch1(void);
+
+u16 res,res1;
+
+void main(void)
+{
+	PORT_voidInIt();
+	ADC_voidInit();
+	GIE_voidEnable();
+	ADC_voidEnable();
+	CLCD_voidInit();
+
+	while(1)
+	{
+		PORT_voidInIt();
+		ADC_voidInit();
+		ADC_u8StartConversionAsynch(0,&res,Display_ch0);
+		ADC_u8StartConversionAsynch(1,&res,Display_ch1);
+	}
+
+
+
+}
+
+void Display_ch0(void)
+{
+	CLCD_voidGoToXY(0,0);
+	CLCD_voidSendString("ch0 = ");
+	CLCD_voidDisplayNumber(res);
+	_delay_ms(10);
+	CLCD_voidClearScreen();
+}
+void Display_ch1(void)
+{
+	CLCD_voidGoToXY(1,0);
+	CLCD_voidSendString("ch1 = ");
+	CLCD_voidDisplayNumber(res);
+	_delay_ms(10);
+	CLCD_voidClearScreen();
+}

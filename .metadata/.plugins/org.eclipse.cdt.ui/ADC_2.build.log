@@ -1,0 +1,41 @@
+05:57:57 **** Incremental Build of configuration Debug for project ADC_2 ****
+make all 
+Building file: ../ADC_2_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ADC_2_main.d" -MT"ADC_2_main.o" -c -o "ADC_2_main.o" "../ADC_2_main.c"
+../ADC_2_main.c:24: warning: return type of 'main' is not 'int'
+../ADC_2_main.c: In function 'main':
+../ADC_2_main.c:38: warning: pointer targets in passing argument 1 of 'CLCD_voidSendString' differ in signedness
+Finished building: ../ADC_2_main.c
+ 
+Building target: ADC_2.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ADC_2.map -mmcu=atmega32 -o "ADC_2.elf"  ./ADC_2_main.o ./ADC_program.o ./CLCD_program.o ./DIO_program.o ./GIE_program.o ./LM35_program.o ./PORT_program.o   
+Finished building target: ADC_2.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ADC_2.elf  >"ADC_2.lss"
+Finished building: ADC_2.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC_2.elf  "ADC_2.hex"
+Finished building: ADC_2.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ADC_2.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   21090 bytes (64.4% Full)
+(.text + .data + .bootloader)
+
+Data:        364 bytes (17.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+05:57:57 Build Finished (took 389ms)
+

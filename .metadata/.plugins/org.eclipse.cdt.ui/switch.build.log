@@ -1,0 +1,44 @@
+16:55:00 **** Incremental Build of configuration Debug for project switch ****
+make all 
+Building file: ../PORT_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O1 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"PORT_program.d" -MT"PORT_program.o" -c -o "PORT_program.o" "../PORT_program.c"
+Finished building: ../PORT_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O1 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:6: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: switch.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,switch.map -mmcu=atmega32 -o "switch.elf"  ./DIO_programe.o ./PORT_program.o ./main.o   
+Finished building target: switch.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S switch.elf  >"switch.lss"
+Finished building: switch.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex switch.elf  "switch.hex"
+Finished building: switch.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 switch.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     704 bytes (2.1% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:55:01 Build Finished (took 409ms)
+

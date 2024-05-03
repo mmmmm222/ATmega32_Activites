@@ -150,7 +150,7 @@ LOAD k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gc
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x251e
+.text           0x00000000     0x2530
  *(.vectors)
  .vectors       0x00000000       0x54 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -327,121 +327,121 @@ LOAD k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gc
  .text.main     0x00001bf4       0x2c ./ICU_1_main.o
                 0x00001bf4                main
  .text.Response
-                0x00001c20       0xbc ./ICU_1_main.o
+                0x00001c20       0xce ./ICU_1_main.o
                 0x00001c20                Response
  .text.PORT_voidInIt
-                0x00001cdc       0x44 ./PORT_program.o
-                0x00001cdc                PORT_voidInIt
+                0x00001cee       0x44 ./PORT_program.o
+                0x00001cee                PORT_voidInIt
  .text.TIMER0_voidInit
-                0x00001d20       0x6a ./TIMER_program.o
-                0x00001d20                TIMER0_voidInit
+                0x00001d32       0x6a ./TIMER_program.o
+                0x00001d32                TIMER0_voidInit
  .text.TIMER1_voidInit
-                0x00001d8a       0x78 ./TIMER_program.o
-                0x00001d8a                TIMER1_voidInit
+                0x00001d9c       0x78 ./TIMER_program.o
+                0x00001d9c                TIMER1_voidInit
  .text.TIMER2_voidInit
-                0x00001e02       0x5c ./TIMER_program.o
-                0x00001e02                TIMER2_voidInit
+                0x00001e14       0x5c ./TIMER_program.o
+                0x00001e14                TIMER2_voidInit
  .text.TIMER0_voidSetPreload
-                0x00001e5e       0x1c ./TIMER_program.o
-                0x00001e5e                TIMER0_voidSetPreload
+                0x00001e70       0x1c ./TIMER_program.o
+                0x00001e70                TIMER0_voidSetPreload
  .text.TIMER1_voidSetPreload
-                0x00001e7a       0x24 ./TIMER_program.o
-                0x00001e7a                TIMER1_voidSetPreload
+                0x00001e8c       0x24 ./TIMER_program.o
+                0x00001e8c                TIMER1_voidSetPreload
  .text.TIMER2_voidSetPreload
-                0x00001e9e       0x1c ./TIMER_program.o
-                0x00001e9e                TIMER2_voidSetPreload
+                0x00001eb0       0x1c ./TIMER_program.o
+                0x00001eb0                TIMER2_voidSetPreload
  .text.TIMER0_voidSetCTC
-                0x00001eba       0x1c ./TIMER_program.o
-                0x00001eba                TIMER0_voidSetCTC
+                0x00001ecc       0x1c ./TIMER_program.o
+                0x00001ecc                TIMER0_voidSetCTC
  .text.TIMER1_voidSetCTCA
-                0x00001ed6       0x24 ./TIMER_program.o
-                0x00001ed6                TIMER1_voidSetCTCA
+                0x00001ee8       0x24 ./TIMER_program.o
+                0x00001ee8                TIMER1_voidSetCTCA
  .text.TIMER1_voidSetCTCB
-                0x00001efa       0x24 ./TIMER_program.o
-                0x00001efa                TIMER1_voidSetCTCB
+                0x00001f0c       0x24 ./TIMER_program.o
+                0x00001f0c                TIMER1_voidSetCTCB
  .text.TIMER2_voidSetCTC
-                0x00001f1e       0x1c ./TIMER_program.o
-                0x00001f1e                TIMER2_voidSetCTC
+                0x00001f30       0x1c ./TIMER_program.o
+                0x00001f30                TIMER2_voidSetCTC
  .text.TIMER1_voidSetICR1
-                0x00001f3a       0x24 ./TIMER_program.o
-                0x00001f3a                TIMER1_voidSetICR1
+                0x00001f4c       0x24 ./TIMER_program.o
+                0x00001f4c                TIMER1_voidSetICR1
  .text.TIMER0_u8GetTimerCounterValue
-                0x00001f5e       0x14 ./TIMER_program.o
-                0x00001f5e                TIMER0_u8GetTimerCounterValue
+                0x00001f70       0x14 ./TIMER_program.o
+                0x00001f70                TIMER0_u8GetTimerCounterValue
  .text.TIMER1_u16GetTimerCounterValue
-                0x00001f72       0x16 ./TIMER_program.o
-                0x00001f72                TIMER1_u16GetTimerCounterValue
+                0x00001f84       0x16 ./TIMER_program.o
+                0x00001f84                TIMER1_u16GetTimerCounterValue
  .text.TIMER2_u8GetTimerCounterValue
-                0x00001f88       0x14 ./TIMER_program.o
-                0x00001f88                TIMER2_u8GetTimerCounterValue
+                0x00001f9a       0x14 ./TIMER_program.o
+                0x00001f9a                TIMER2_u8GetTimerCounterValue
  .text.TIMER_voidSetPWM
-                0x00001f9c       0x24 ./TIMER_program.o
-                0x00001f9c                TIMER_voidSetPWM
+                0x00001fae       0x24 ./TIMER_program.o
+                0x00001fae                TIMER_voidSetPWM
  .text.TIMER_voidICUInitEnable
-                0x00001fc0       0x2a ./TIMER_program.o
-                0x00001fc0                TIMER_voidICUInitEnable
+                0x00001fd2       0x2a ./TIMER_program.o
+                0x00001fd2                TIMER_voidICUInitEnable
  .text.TIMER_voidICUSetTriggerEdge
-                0x00001fea       0x4c ./TIMER_program.o
-                0x00001fea                TIMER_voidICUSetTriggerEdge
+                0x00001ffc       0x4c ./TIMER_program.o
+                0x00001ffc                TIMER_voidICUSetTriggerEdge
  .text.TIMER_voidICUEnableInterrupt
-                0x00002036       0x1c ./TIMER_program.o
-                0x00002036                TIMER_voidICUEnableInterrupt
+                0x00002048       0x1c ./TIMER_program.o
+                0x00002048                TIMER_voidICUEnableInterrupt
  .text.TIMER_voidICUDisableInterrupt
-                0x00002052       0x1c ./TIMER_program.o
-                0x00002052                TIMER_voidICUDisableInterrupt
+                0x00002064       0x1c ./TIMER_program.o
+                0x00002064                TIMER_voidICUDisableInterrupt
  .text.TIMER_u16GetICR
-                0x0000206e       0x16 ./TIMER_program.o
-                0x0000206e                TIMER_u16GetICR
+                0x00002080       0x16 ./TIMER_program.o
+                0x00002080                TIMER_u16GetICR
  .text.TIMER_voidWDTSleep
-                0x00002084       0x2a ./TIMER_program.o
-                0x00002084                TIMER_voidWDTSleep
+                0x00002096       0x2a ./TIMER_program.o
+                0x00002096                TIMER_voidWDTSleep
  .text.TIMER_voidWDTEnable
-                0x000020ae       0x1c ./TIMER_program.o
-                0x000020ae                TIMER_voidWDTEnable
+                0x000020c0       0x1c ./TIMER_program.o
+                0x000020c0                TIMER_voidWDTEnable
  .text.TIMER_voidWDTDisable
-                0x000020ca       0x22 ./TIMER_program.o
-                0x000020ca                TIMER_voidWDTDisable
+                0x000020dc       0x22 ./TIMER_program.o
+                0x000020dc                TIMER_voidWDTDisable
  .text.TIMER_u8SetCallBack
-                0x000020ec       0x4c ./TIMER_program.o
-                0x000020ec                TIMER_u8SetCallBack
+                0x000020fe       0x4c ./TIMER_program.o
+                0x000020fe                TIMER_u8SetCallBack
  .text.__vector_11
-                0x00002138       0x66 ./TIMER_program.o
-                0x00002138                __vector_11
+                0x0000214a       0x66 ./TIMER_program.o
+                0x0000214a                __vector_11
  .text.__vector_10
-                0x0000219e       0x66 ./TIMER_program.o
-                0x0000219e                __vector_10
+                0x000021b0       0x66 ./TIMER_program.o
+                0x000021b0                __vector_10
  .text.__vector_9
-                0x00002204       0x66 ./TIMER_program.o
-                0x00002204                __vector_9
+                0x00002216       0x66 ./TIMER_program.o
+                0x00002216                __vector_9
  .text.__vector_8
-                0x0000226a       0x66 ./TIMER_program.o
-                0x0000226a                __vector_8
+                0x0000227c       0x66 ./TIMER_program.o
+                0x0000227c                __vector_8
  .text.__vector_7
-                0x000022d0       0x66 ./TIMER_program.o
-                0x000022d0                __vector_7
+                0x000022e2       0x66 ./TIMER_program.o
+                0x000022e2                __vector_7
  .text.__vector_6
-                0x00002336       0x66 ./TIMER_program.o
-                0x00002336                __vector_6
+                0x00002348       0x66 ./TIMER_program.o
+                0x00002348                __vector_6
  .text.__vector_5
-                0x0000239c       0x66 ./TIMER_program.o
-                0x0000239c                __vector_5
+                0x000023ae       0x66 ./TIMER_program.o
+                0x000023ae                __vector_5
  .text.__vector_4
-                0x00002402       0x66 ./TIMER_program.o
-                0x00002402                __vector_4
- .text.libgcc   0x00002468       0x44 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00002468                __udivmodsi4
- .text.libgcc   0x000024ac        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x000024ac        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x000024ac        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x000024ac       0x38 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x000024ac                __prologue_saves__
- .text.libgcc   0x000024e4       0x36 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x000024e4                __epilogue_restores__
-                0x0000251a                . = ALIGN (0x2)
+                0x00002414       0x66 ./TIMER_program.o
+                0x00002414                __vector_4
+ .text.libgcc   0x0000247a       0x44 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x0000247a                __udivmodsi4
+ .text.libgcc   0x000024be        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000024be        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000024be        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x000024be       0x38 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x000024be                __prologue_saves__
+ .text.libgcc   0x000024f6       0x36 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x000024f6                __epilogue_restores__
+                0x0000252c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000251a        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000251a                exit
-                0x0000251a                _exit
+ .fini9         0x0000252c        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000252c                exit
+                0x0000252c                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -460,11 +460,11 @@ LOAD k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gc
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000251a        0x4 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000252c        0x4 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000251e                _etext = .
+                0x00002530                _etext = .
 
-.data           0x00800060       0x1e load address 0x0000251e
+.data           0x00800060       0x1e load address 0x00002530
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -542,8 +542,8 @@ LOAD k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gc
                 0x00800086       0x20 ./TIMER_program.o
  *(COMMON)
                 0x008000a6                PROVIDE (__bss_end, .)
-                0x0000251e                __data_load_start = LOADADDR (.data)
-                0x0000253c                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00002530                __data_load_start = LOADADDR (.data)
+                0x0000254e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008000a6        0x0
                 0x008000a6                PROVIDE (__noinit_start, .)

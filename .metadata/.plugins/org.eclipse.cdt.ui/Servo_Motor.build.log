@@ -1,0 +1,41 @@
+18:07:13 **** Incremental Build of configuration Debug for project Servo_Motor ****
+make all 
+Building file: ../Servo_maic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Servo_maic.d" -MT"Servo_maic.o" -c -o "Servo_maic.o" "../Servo_maic.c"
+In file included from ../Servo_maic.c:15:
+k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../Servo_maic.c:17: warning: return type of 'main' is not 'int'
+Finished building: ../Servo_maic.c
+ 
+Building target: Servo_Motor.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Servo_Motor.map -mmcu=atmega32 -o "Servo_Motor.elf"  ./ADC_program.o ./CLCD_program.o ./DIO_programe.o ./PORT_program.o ./Servo_maic.o ./TIMER_program.o   
+Finished building target: Servo_Motor.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Servo_Motor.elf  >"Servo_Motor.lss"
+Finished building: Servo_Motor.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Servo_Motor.elf  "Servo_Motor.hex"
+Finished building: Servo_Motor.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Servo_Motor.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   10540 bytes (32.2% Full)
+(.text + .data + .bootloader)
+
+Data:         74 bytes (3.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:07:13 Build Finished (took 397ms)
+

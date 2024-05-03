@@ -1,0 +1,20 @@
+13:59:48 **** Incremental Build of configuration Debug for project calculator_v1 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 calculator_v1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5286 bytes (16.1% Full)
+(.text + .data + .bootloader)
+
+Data:         16 bytes (0.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:59:48 Build Finished (took 95ms)
+

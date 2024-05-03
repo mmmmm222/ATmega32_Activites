@@ -1,0 +1,41 @@
+09:58:31 **** Incremental Build of configuration Debug for project DAC ****
+make all 
+Building file: ../DACMain.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DACMain.d" -MT"DACMain.o" -c -o "DACMain.o" "../DACMain.c"
+In file included from ../DACMain.c:4:
+k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../DACMain.c:6: warning: return type of 'main' is not 'int'
+Finished building: ../DACMain.c
+ 
+Building target: DAC.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DAC.map -mmcu=atmega32 -o "DAC.elf"  ./DACMain.o ./DIO_programe.o ./PORT_program.o   
+Finished building target: DAC.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DAC.elf  >"DAC.lss"
+Finished building: DAC.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex DAC.elf  "DAC.hex"
+Finished building: DAC.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DAC.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4588 bytes (14.0% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+09:58:32 Build Finished (took 515ms)
+

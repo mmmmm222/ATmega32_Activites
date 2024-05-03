@@ -1,0 +1,41 @@
+18:25:30 **** Incremental Build of configuration Debug for project Stepper_motor ****
+make all 
+Building file: ../StepperMain.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"StepperMain.d" -MT"StepperMain.o" -c -o "StepperMain.o" "../StepperMain.c"
+In file included from ../StepperMain.c:4:
+k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../StepperMain.c:6: warning: return type of 'main' is not 'int'
+Finished building: ../StepperMain.c
+ 
+Building target: Stepper_motor.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Stepper_motor.map -mmcu=atmega32 -o "Stepper_motor.elf"  ./DIO_programe.o ./EXTI_proram.o ./GIE_program.o ./PORT_program.o ./StepperMain.o   
+Finished building target: Stepper_motor.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Stepper_motor.elf  >"Stepper_motor.lss"
+Finished building: Stepper_motor.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Stepper_motor.elf  "Stepper_motor.hex"
+Finished building: Stepper_motor.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Stepper_motor.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5258 bytes (16.0% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:25:30 Build Finished (took 330ms)
+

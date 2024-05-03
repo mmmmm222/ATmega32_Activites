@@ -1,0 +1,36 @@
+/*
+ * ICU_1_main.c
+ *
+ *  Created on: May 2, 2024
+ *      Author: moali
+ */
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
+#include "PORT_interface.h"
+#include "TIMER_interface.h"
+#include "EXTI_interface.h"
+#include "DIO_interface.h"
+#include "GIE_interface.h"
+
+
+
+void main()
+{
+	TIMER0_voidInit();
+	EXTI_u8IntEnable();
+	TIMER1_voidInit();
+	CLCD_voidInit();
+	GIE_voidEnable();
+
+	while(1)
+	{
+
+	}
+}
+
+void Response(void)
+{
+
+}

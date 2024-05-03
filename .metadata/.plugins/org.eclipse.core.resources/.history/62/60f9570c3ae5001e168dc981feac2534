@@ -1,0 +1,282 @@
+/*
+ *<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<    ADC_program.c   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ *
+ *  Author  : Mohamed Ali Saber
+ *  Date    : 22/3/2024
+ *  Version : V_1.00
+ *  Layer   : MCAL
+ *
+ */
+
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
+#include "ADC_config.h"
+#include "ADC_interface.h"
+#include "ADC_private.h"
+#include "ADC_register.h"
+
+
+/*Global flag for the ADC State*/
+static u8 ADC_u8State = IDEL;
+
+/*Global flag for the ADC ISR State*/
+static u8 ADC_u8ISRState ;
+
+//Global pointer to The notification Function
+static void (*ADC_globalptrNotificationFunc)(void) = NULL;
+
+//Global Pointer  To Carry The Conversion Result
+static u16 *ADC_globalptru16Result = NULL;
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+
+void ADC_voidInit(void)
+{
+	/* Voltage Reference */
+	#if VREF == AVCC
+		SET_BIT(ADMUX, ADMUX_REFS0);
+		CLR_BIT(ADMUX, ADMUX_REFS1);
+	#elif VREF == AREF
+		CLR_BIT(ADMUX, ADMUX_REFS0);
+		CLR_BIT(ADMUX, ADMUX_REFS1);
+
+	#elif VREF == INTERNAL_2_56
+		SET_BIT(ADMUX, ADMUX_REFS0);
+		SET_BIT(ADMUX, ADMUX_REFS1);
+	#else
+	#error "Wrong VREF choice"
+	#endif
+
+		/* Prescaller */
+		ADCSRA &= ADC_PRE_MASK;
+		ADCSRA |= ADC_PRESCALLER;
+
+		/* Adjust Result */
+	#if ADC_ADJUSTMENT == LEFT_ADJUST
+			SET_BIT(ADMUX, ADMUX_ADLAR);
+
+	#elif ADC_ADJUSTMENT == RIGHT_ADJUST
+			CLR_BIT(ADMUX, ADMUX_ADLAR);
+
+	#else
+	#error "Wrong Adjust choice"
+	#endif
+
+		/* ADC State */
+	#if ADC_STATE == ADC_ENABLE
+			SET_BIT(ADCSRA, ADCSRA_ADEN);
+	#elif ADC_STATE == ADC_DISABLE
+			CLR_BIT(ADCSRA, ADCSRA_ADEN);
+	#else
+	#error "Wrong State choice"
+	#endif
+
+		/* Interrupt State */
+
+	#if INT_STATUS == INT_DISABLE
+			SET_BIT(ADCSRA, ADCSRA_ADEN);
+	#elif INT_STATUS == INT_ENABLE
+			CLR_BIT(ADCSRA, ADCSRA_ADEN);
+	#else
+	#error "Wrong Interrupt choice"
+	#endif
+
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+
+void ADC_voidEnable(void)
+{
+	SET_BIT(ADCSRA, ADCSRA_ADEN);
+}
+
+void ADC_voidDisable(void)
+{
+	CLR_BIT(ADCSRA, ADCSRA_ADEN);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+
+void ADC_voidInterruptEnable(void)
+{
+	SET_BIT(ADCSRA, ADCSRA_ADIE);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+
+void ADC_voidInterruptDisable(void)
+{
+	CLR_BIT(ADCSRA, ADCSRA_ADIE);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+
+u8 ADC_u8SetPrescaller(u8 Copy_u8Prescaller)
+{
+	u8 Local_u8ErrorState = OK;
+
+	ADCSRA &= ADC_PRE_MASK;
+	ADCSRA |= Copy_u8Prescaller;
+
+	return Local_u8ErrorState;
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+
+u8 ADC_u8GetResultSync (u8 Copy_u8Channel , u16 * Copy_pu16Result)
+{
+	u8 Local_u8ErrorState = OK;
+	u32 Local_u32Counter=0;
+
+	if(Copy_pu16Result != NULL)
+	{
+		if(ADC_u8State == IDEL)
+			{
+				ADC_u8State = BUSY;
+
+				/* Set The Required Channel */
+				ADMUX &= ADC_CHANNEL_MASK;
+				ADMUX |= Copy_u8Channel;
+
+				/* Start Conversion */
+				SET_BIT(ADCSRA, ADCSRA_ADSC);
+
+				/* Polling Till The Conversion Complete */
+				while(GET_BIT(ADCSRA, ADCSRA_ADIF) == 1 && Local_u32Counter < ADC_TIME_OUT)
+				{
+					Local_u32Counter++;
+				}
+				if(Local_u32Counter == ADC_TIME_OUT)
+				{
+					Local_u8ErrorState = TIMEOUT;
+				}
+				else
+				{
+					/*Clear the interrupt flag*/
+					SET_BIT(ADCSRA , ADCSRA_ADIF) ;
+
+					/*Return Conversion Result*/
+					#if ADC_ADJUSTMENT == LEFT_ADJUST
+							*Copy_pu16Result = ADCH;
+					#elif ADC_ADJUSTMENT == RIGHT_ADJUST
+							*Copy_pu16Result = (ADCL | ADCH<<8);
+					#else
+					#error "Wrong ADC_ADJUSTMENT Choice"
+					#endif
+				}
+
+				ADC_u8State = IDEL;
+			}
+			else
+			{
+				Local_u8ErrorState = BUSY;
+			}
+	}
+
+	else
+	{
+		Local_u8ErrorState = NULL_POINTER;
+	}
+
+	return Local_u8ErrorState;
+
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+
+u8 ADC_u8StartConversionAsynch (u8 Copy_u8Channel , u16 * Copy_pu16Result , void (*Copy_pvNotificationFunc)(void))
+{
+		u8 Local_u8ErrorState = OK;
+		if(ADC_u8State == IDEL){
+
+			if(Copy_pu16Result != NULL && Copy_pvNotificationFunc != NULL){
+
+				/*ADC is now Busy*/
+				ADC_u8State = BUSY;
+
+				/*Set ISR State*/
+				ADC_u8ISRState = SINGLE_CHANNEL_ASYNCH;
+
+				//make The Global pointers point to the arguments to reuse them in the isr
+				ADC_globalptru16Result = Copy_pu16Result;
+				ADC_globalptrNotificationFunc = Copy_pvNotificationFunc ;
+
+				//Set The required channel
+				ADMUX &= ADC_CHANNEL_MASK;
+				ADMUX |= Copy_u8Channel;
+
+				//Start Conversion
+				SET_BIT(ADCSRA, ADCSRA_ADSC);
+
+				//Enable Interrupt
+				SET_BIT(ADCSRA, ADCSRA_ADIE);
+
+			}
+
+			else{
+				Local_u8ErrorState = NULL_POINTER;
+			}
+		}
+
+		else{
+			Local_u8ErrorState = BUSY;
+		}
+
+		return Local_u8ErrorState;
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+
+//u8 ADC_u8StartChainAsynch (Chain_t * Copy_Chain)
+//{
+//
+//
+//
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* ISR for ADC conversion complete */
+void __vector_16 (void)  __attribute__((signal)) ;
+void __vector_16 (void) {
+
+	if(ADC_u8ISRState == SINGLE_CHANNEL_ASYNCH){
+			//Check The Adjust Mode
+		#if ADC_ADJUSTMENT == LEFT_ADJUST
+			//Assign The Value to the Variable Through Global ptr
+				*ADC_globalptru16Result = ADCH;
+
+		#elif ADC_ADJUSTMENT == RIGHT_ADJUST
+				*ADC_globalptru16Result = (ADCL |= (ADCH<<8));
+
+		#else
+		#error "Wrong Adjustment Choice"
+
+		#endif
+
+		/*ADC is IDLE*/
+		ADC_u8State = IDEL ;
+
+		//Call The Notification Function
+		ADC_globalptrNotificationFunc();
+
+		//Disable The Interrupt
+		CLR_BIT(ADCSRA, ADCSRA_ADIE);
+
+	}
+
+	else{
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+

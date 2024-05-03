@@ -1,0 +1,22 @@
+/*
+ *<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<    ADC_register.h / ADC_private.h   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ *
+ *  Author : Mahmoud Karem Zamel
+ *  Layer  : MCAL
+ *  SWC    : ADC
+ *
+ */ 
+ 
+
+#ifndef ADC_PRIVATE_H_
+#define ADC_PRIVATE_H_
+
+/* Bit Masking Macros  */
+#define ADC_PRE_MASK				0b11111000
+#define ADC_CH_MASK				    0b11100000
+
+/* Values of the global var (ADC_u8ISRSource)  */
+#define SINGLE_CHANNEL_ASYNCH 0
+#define CHAIN_CHANNEL_ASYNCH  1
+
+#endif /* ADC_PRIVATE_H_ */

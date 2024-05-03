@@ -1,0 +1,23 @@
+/*
+ * Servo_maic.c
+ *
+ *  Created on: Apr 28, 2024
+ *      Author: moali
+ */
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "PORT_interface.h"
+#include "DIO_interface.h"
+#include "TIMER_register.h"
+#include "ADC_interface.h"
+#include <util/delay.h>
+
+void main(void){
+
+	PORT_voidInIt();
+	ADC_voidInit();
+
+	u16 res;
+	ADC_u8GetResultSync(0 ,&res);
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 5 resources" deleteContents="false" description="Delete 5 resources" element1="/Servo_Motor/TIMER_config.h" element2="/Servo_Motor/TIMER_interface.h" element3="/Servo_Motor/TIMER_private.h" element4="/Servo_Motor/TIMER_program.c" element5="/Servo_Motor/Timer_register.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1714332280610"/>
+</session>

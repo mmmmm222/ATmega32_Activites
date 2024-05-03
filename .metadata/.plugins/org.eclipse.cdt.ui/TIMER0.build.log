@@ -1,0 +1,41 @@
+16:32:17 **** Incremental Build of configuration Debug for project TIMER0 ****
+make all 
+Building file: ../TIMER0main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"TIMER0main.d" -MT"TIMER0main.o" -c -o "TIMER0main.o" "../TIMER0main.c"
+In file included from ../TIMER0main.c:14:
+k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../TIMER0main.c:17: warning: return type of 'main' is not 'int'
+Finished building: ../TIMER0main.c
+ 
+Building target: TIMER0.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TIMER0.map -mmcu=atmega32 -o "TIMER0.elf"  ./DIO_programe.o ./GIE_program.o ./PORT_program.o ./TIMER0main.o ./TIMER_program.o   
+Finished building target: TIMER0.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TIMER0.elf  >"TIMER0.lss"
+Finished building: TIMER0.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TIMER0.elf  "TIMER0.hex"
+Finished building: TIMER0.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TIMER0.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4738 bytes (14.5% Full)
+(.text + .data + .bootloader)
+
+Data:         12 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:32:18 Build Finished (took 499ms)
+

@@ -46,7 +46,7 @@ void Response(void)
 	}
 	else if(cnt == 2)
 	{
-		On_Time = (TIMER1_u16GetTimerCounterValue() );
+		On_Time = (TIMER1_u16GetTimerCounterValue() - Period_Time );
 		EXTI_u8IntDisable(INT0);
 		CLCD_voidSendString("Period Time=");
 		CLCD_voidDisplayNumber(Period_Time);
