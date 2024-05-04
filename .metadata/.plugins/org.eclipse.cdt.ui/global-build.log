@@ -1,34 +1,36 @@
-03:00:54 **** Incremental Build of configuration Debug for project ICU_1 ****
+20:01:36 **** Incremental Build of configuration Debug for project WDT ****
 make all 
-Building file: ../ICU_1_main.c
+Building file: ../WDT_main.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ICU_1_main.d" -MT"ICU_1_main.o" -c -o "ICU_1_main.o" "../ICU_1_main.c"
-../ICU_1_main.c:20: warning: return type of 'main' is not 'int'
-Finished building: ../ICU_1_main.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"WDT_main.d" -MT"WDT_main.o" -c -o "WDT_main.o" "../WDT_main.c"
+In file included from ../WDT_main.c:14:
+k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../WDT_main.c:44: warning: return type of 'main' is not 'int'
+Finished building: ../WDT_main.c
  
-Building target: ICU_1.elf
+Building target: WDT.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,ICU_1.map -mmcu=atmega32 -o "ICU_1.elf"  ./CLCD_program.o ./DIO_programe.o ./EXTI_proram.o ./GIE_program.o ./ICU_1_main.o ./PORT_program.o ./TIMER_program.o   
-Finished building target: ICU_1.elf
+avr-gcc -Wl,-Map,WDT.map -mmcu=atmega32 -o "WDT.elf"  ./DIO_programe.o ./PORT_program.o ./WDT_main.o   
+Finished building target: WDT.elf
  
 Invoking: AVR Create Extended Listing
-avr-objdump -h -S ICU_1.elf  >"ICU_1.lss"
-Finished building: ICU_1.lss
+avr-objdump -h -S WDT.elf  >"WDT.lss"
+Finished building: WDT.lss
  
 Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ICU_1.elf  "ICU_1.hex"
-Finished building: ICU_1.hex
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex WDT.elf  "WDT.hex"
+Finished building: WDT.hex
  
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 ICU_1.elf
+avr-size --format=avr --mcu=atmega32 WDT.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    9550 bytes (29.1% Full)
+Program:    4452 bytes (13.6% Full)
 (.text + .data + .bootloader)
 
-Data:         70 bytes (3.4% Full)
+Data:          8 bytes (0.4% Full)
 (.data + .bss + .noinit)
 
 

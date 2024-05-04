@@ -1,0 +1,39 @@
+17:21:14 **** Incremental Build of configuration Debug for project HW_ICU ****
+make all 
+Building file: ../HW_ICU_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HW_ICU_main.d" -MT"HW_ICU_main.o" -c -o "HW_ICU_main.o" "../HW_ICU_main.c"
+../HW_ICU_main.c:17: warning: return type of 'main' is not 'int'
+Finished building: ../HW_ICU_main.c
+ 
+Building target: HW_ICU.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,HW_ICU.map -mmcu=atmega32 -o "HW_ICU.elf"  ./CLCD_program.o ./DIO_programe.o ./GIE_program.o ./HW_ICU_main.o ./PORT_program.o ./TIMER_program.o   
+Finished building target: HW_ICU.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S HW_ICU.elf  >"HW_ICU.lss"
+Finished building: HW_ICU.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex HW_ICU.elf  "HW_ICU.hex"
+Finished building: HW_ICU.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 HW_ICU.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8470 bytes (25.8% Full)
+(.text + .data + .bootloader)
+
+Data:         70 bytes (3.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+17:21:14 Build Finished (took 340ms)
+

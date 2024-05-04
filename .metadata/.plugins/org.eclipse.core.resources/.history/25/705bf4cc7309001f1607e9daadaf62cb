@@ -1,0 +1,38 @@
+/*
+ * WDT_main.c
+ *
+ *  Created on: May 3, 2024
+ *      Author: moali
+ */
+
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
+#include "PORT_interface.h"
+#include "DIO_interface.h"
+
+#define WDTCR 				(*(volatile u8*)0x41)
+#define WDTCR_EDTOE			4
+#define WDTCR_WDE			3
+#define WDTCR_WDP2			2
+#define WDTCR_WDP1			1
+#define WDTCR_WDP0			0
+
+void WDT_voidDisable(void)
+{
+
+}
+
+void WDT_voidEnable(void)
+{
+}
+
+void main(void)
+{
+	while(1)
+	{
+
+	}
+
+}

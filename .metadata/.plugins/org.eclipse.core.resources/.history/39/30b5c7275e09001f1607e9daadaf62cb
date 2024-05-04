@@ -1,0 +1,58 @@
+/*
+ * HW_ICU_main.c
+ *
+ *  Created on: May 3, 2024
+ *      Author: moali
+ */
+
+#include "STD_TYPES.h"
+
+#include "PORT_interface.h"
+#include "TIMER_interface.h"
+#include "GIE_interface.h"
+
+#include "CLCD_interface.h"
+void ResponseICU(void);
+
+void main(void)
+{
+	PORT_voidInIt();
+	GIE_voidEnable();
+	CLCD_voidInit();
+	TIMER1_voidInit();
+	TIMER_u8SetCallBack(&ResponseICU , TIMER1_ICU_VECTOR_ID);
+	TIMER_voidICUInitEnable();
+	TIMER0_voidInit();
+
+	while(1)
+	{
+
+	}
+}
+
+void ResponseICU(void)
+{
+	static u16 period =0,cnt=0 , On_Time=0;
+	if(cnt == 0)
+	{
+		period = TIMER_u16GetICR();
+
+	}
+	else if(cnt == 1)
+	{
+		TIMER_voidICUSetTriggerEdge(TIMER_u8_ICP_FALLING_EDGE);
+		period -= TIMER_u16GetICR();
+	}
+	else if(cnt == 2)
+	{
+		On_Time = (TIMER_u16GetICR() - period);
+		GIE_voidDisable();
+		TIMER_voidICUDisableInterrupt();
+		CLCD_voidSendString("Period Time=");
+		CLCD_voidDisplayNumber(period);
+		CLCD_voidGoToXY(1,0);
+		CLCD_voidSendString("On Time=");
+		CLCD_voidDisplayNumber(On_Time);
+	}
+	cnt++;
+}
