@@ -1,0 +1,14 @@
+#ifndef SPI_CONFIG_H_
+#define SPI_CONFIG_H_
+
+/*
+ 	 choose SPI interrupt state
+ 	 - ENABLE
+ 	 - DISABLE
+
+ 	 if you choosed ENABLE => Do not forget to enable GIE
+*/
+#define SPI_INTERRUPT_STATE		ENABLE
+
+
+#endif

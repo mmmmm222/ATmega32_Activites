@@ -1,0 +1,41 @@
+05:29:09 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../USART_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"USART_main.d" -MT"USART_main.o" -c -o "USART_main.o" "../USART_main.c"
+In file included from ../USART_main.c:12:
+k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../USART_main.c:17: warning: return type of 'main' is not 'int'
+Finished building: ../USART_main.c
+ 
+Building target: USART.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,USART.map -mmcu=atmega32 -o "USART.elf"  ./CLCD_program.o ./DIO_programe.o ./PORT_program.o ./USART_main.o ./USART_program.o   
+Finished building target: USART.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S USART.elf  >"USART.lss"
+Finished building: USART.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART.elf  "USART.hex"
+Finished building: USART.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7886 bytes (24.1% Full)
+(.text + .data + .bootloader)
+
+Data:         25 bytes (1.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+05:29:09 Build Finished (took 331ms)
+

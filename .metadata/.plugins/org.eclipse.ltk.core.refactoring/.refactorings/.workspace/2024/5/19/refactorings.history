@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;MCU_1/USART_main.c&apos;" deleteContents="false" description="Delete resource &apos;MCU_1/USART_main.c&apos;" element1="/MCU_1/USART_main.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1714882779182"/>&#x0A;<refactoring comment="Delete resource &apos;Claculator/Error_Status.h&apos;" deleteContents="false" description="Delete resource &apos;Claculator/Error_Status.h&apos;" element1="/Claculator/Error_Status.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1715056209814"/>
+</session>

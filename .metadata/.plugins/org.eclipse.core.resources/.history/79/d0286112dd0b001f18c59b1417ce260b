@@ -1,0 +1,25 @@
+#ifndef SPI_REGISTER_H_
+#define SPI_REGISTER_H_
+
+#define SPCR	*((volatile u8*)0x2d)
+
+#define SPIE	7	//SPI Interrupt Enable
+#define SPE     6   //SPI Enable
+#define DORD    5   //Data Order
+#define MSTR    4   // Master/Slave Select
+#define CPOL    3   //Clock Polarity
+#define CPHA    2   //Clock Phase
+#define SPR1    1   // SPI Clock Rate Select
+#define SPR0    0   // SPI Clock Rate Select
+
+//SPI Status Register – SPSR
+
+#define SPSR	*((volatile u8*)0x2e)
+
+#define SPIF    7 //SPI Interrupt Flag
+#define WCOL    6 //COLlision Flag
+#define SPI2X   0 // Double SPI Speed Bit
+
+
+
+#endif

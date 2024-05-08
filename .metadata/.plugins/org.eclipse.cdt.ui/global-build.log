@@ -1,36 +1,40 @@
-20:01:36 **** Incremental Build of configuration Debug for project WDT ****
+11:37:20 **** Build of configuration Debug for project HAMEDS_CALC ****
 make all 
-Building file: ../WDT_main.c
+Building file: ../HAMEDS_CALC_main.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"WDT_main.d" -MT"WDT_main.o" -c -o "WDT_main.o" "../WDT_main.c"
-In file included from ../WDT_main.c:14:
-k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-../WDT_main.c:44: warning: return type of 'main' is not 'int'
-Finished building: ../WDT_main.c
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAMEDS_CALC_main.d" -MT"HAMEDS_CALC_main.o" -c -o "HAMEDS_CALC_main.o" "../HAMEDS_CALC_main.c"
+In file included from ../HAMEDS_CALC_main.c:3:
+../stdTypes.h:5:1: warning: "NULL" redefined
+In file included from k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/string.h:45,
+                 from ../HAMEDS_CALC_main.c:1:
+k:\courses\arm_course\arm_tools\imt_sdk\imt_sdk_win_64\winavr\bin\../lib/gcc/avr/4.3.3/include/stddef.h:403:1: warning: this is the location of the previous definition
+../HAMEDS_CALC_main.c: In function 'Run_Calculator':
+../HAMEDS_CALC_main.c:94: warning: implicit declaration of function 'max'
+Finished building: ../HAMEDS_CALC_main.c
  
-Building target: WDT.elf
+Building target: HAMEDS_CALC.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,WDT.map -mmcu=atmega32 -o "WDT.elf"  ./DIO_programe.o ./PORT_program.o ./WDT_main.o   
-Finished building target: WDT.elf
+avr-gcc -Wl,-Map,HAMEDS_CALC.map -mmcu=atmega32 -o "HAMEDS_CALC.elf"  ./DIO_prog.o ./HAMEDS_CALC_main.o ./Keypad_config.o ./Keypad_prog.o ./LCD_prog.o ./MY_MATH.o ./main.o ./stack.o   
+Finished building target: HAMEDS_CALC.elf
  
 Invoking: AVR Create Extended Listing
-avr-objdump -h -S WDT.elf  >"WDT.lss"
-Finished building: WDT.lss
+avr-objdump -h -S HAMEDS_CALC.elf  >"HAMEDS_CALC.lss"
+Finished building: HAMEDS_CALC.lss
  
 Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex WDT.elf  "WDT.hex"
-Finished building: WDT.hex
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex HAMEDS_CALC.elf  "HAMEDS_CALC.hex"
+Finished building: HAMEDS_CALC.hex
  
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 WDT.elf
+avr-size --format=avr --mcu=atmega32 HAMEDS_CALC.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    4452 bytes (13.6% Full)
+Program:   18548 bytes (56.6% Full)
 (.text + .data + .bootloader)
 
-Data:          8 bytes (0.4% Full)
+Data:        878 bytes (42.9% Full)
 (.data + .bss + .noinit)
 
 

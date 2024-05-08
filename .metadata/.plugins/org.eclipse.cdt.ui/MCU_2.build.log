@@ -1,0 +1,41 @@
+06:31:43 **** Incremental Build of configuration Debug for project MCU_2 ****
+make all 
+Building file: ../MCU_2_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCU_2_main.d" -MT"MCU_2_main.o" -c -o "MCU_2_main.o" "../MCU_2_main.c"
+In file included from ../MCU_2_main.c:5:
+k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCU_2_main.c:9: warning: return type of 'main' is not 'int'
+Finished building: ../MCU_2_main.c
+ 
+Building target: MCU_2.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MCU_2.map -mmcu=atmega32 -o "MCU_2.elf"  ./CLCD_program.o ./DIO_programe.o ./MCU_2_main.o ./PORT_program.o ./USART_program.o   
+Finished building target: MCU_2.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MCU_2.elf  >"MCU_2.lss"
+Finished building: MCU_2.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MCU_2.elf  "MCU_2.hex"
+Finished building: MCU_2.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 MCU_2.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7880 bytes (24.0% Full)
+(.text + .data + .bootloader)
+
+Data:         17 bytes (0.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+06:31:43 Build Finished (took 326ms)
+

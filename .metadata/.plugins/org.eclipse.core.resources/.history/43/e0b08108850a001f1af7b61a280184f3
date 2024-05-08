@@ -1,0 +1,41 @@
+/*
+ * USART_main.c
+ *
+ *  Created on: May 5, 2024
+ *      Author: moali
+ */
+
+#include "STD_TYPES.h"
+#include "PORT_interface.h"
+#include "USART_interface.h"
+
+u8 string[8] = "mohamed";
+
+void main(void)
+{
+	PORT_voidInIt();
+	USART_voidInit();
+//	USART_u8SendData('D');
+	USART_u8SendStringAsynch()
+	while(1)
+	{
+
+	}
+}
+
+//void USART_INIT(void)
+//{
+	//Receiver Enable (UCSRB /RXEN)
+
+	//Transmitter Enable (UCSRB/TXEN)
+
+	// (UCSRC / UMSEL) : USART Mode Select => Asynchronous Operation =>0
+
+	//(UCSRC / UPM1:0)  : Parity Mode => 0 , 0
+
+	//( UCSRC / USBS) : Stop Bit Select => 0
+
+	// ( UCSRC / UCSZ) : Bits Settings =>  0 1 1  => UCSZ2(UCSRB) UCSZ1(UCSRC) UCSZ0(UCSRC) => 8 -bit
+
+	// UBRR = 51
+//}

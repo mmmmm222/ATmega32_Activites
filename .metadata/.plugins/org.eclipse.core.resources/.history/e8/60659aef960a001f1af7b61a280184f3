@@ -1,0 +1,34 @@
+/*
+ * MCU_1_main.c
+ *
+ *  Created on: May 5, 2024
+ *      Author: moali
+ */
+
+
+/*
+ * USART_main.c
+ *
+ *  Created on: May 5, 2024
+ *      Author: moali
+ */
+
+#include "STD_TYPES.h"
+#include "PORT_interface.h"
+#include "USART_interface.h"
+#include "DIO_interface.h"
+#include <util/delay.h>
+void isr(void);
+
+void main(void)
+{
+	PORT_voidInIt();
+	USART_voidInit();
+	USART_u8SendData('1');
+}
+
+void isr(void)
+{
+
+}
+

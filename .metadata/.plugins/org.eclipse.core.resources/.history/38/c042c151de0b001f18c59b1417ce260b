@@ -1,0 +1,15 @@
+#ifndef SPI_CONFIG_H_
+#define SPI_CONFIG_H_
+
+/*
+ * choose SPI interrupt state
+ 	 - ENABLE
+ 	 - DISABLE
+
+
+ *
+ * */
+#define SPI_INTERRUPT_STATE		ENABLE
+
+
+#endif

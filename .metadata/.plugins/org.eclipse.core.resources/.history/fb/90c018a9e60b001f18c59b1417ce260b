@@ -1,0 +1,6 @@
+
+
+void SPI_voidInit(void)
+{
+#if
+}

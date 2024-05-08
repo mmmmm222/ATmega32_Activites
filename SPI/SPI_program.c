@@ -1,0 +1,18 @@
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
+#include "SPI_register.h"
+#include "SPI_private.h"
+#include "SPI_config.h"
+#include "SPI_interface.h"
+
+void SPI_voidInit(void)
+{
+#if SPI_ROLE == MASTER
+	SET_BIT(SPCR  ,SPCR_MSTR);
+#elif SPI_ROLE == SLAVE
+	CLR_BIT(SPCR  ,SPCR_MSTR);
+
+#endif
+
+}

@@ -32,6 +32,9 @@ endif
 LSS += \
 USART.lss \
 
+FLASH_IMAGE += \
+USART.hex \
+
 SIZEDUMMY += \
 sizedummy \
 
@@ -53,6 +56,12 @@ USART.lss: USART.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
+USART.hex: USART.elf
+	@echo 'Create Flash image (ihex format)'
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART.elf  "USART.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 sizedummy: USART.elf
 	@echo 'Invoking: Print Size'
 	-avr-size --format=avr --mcu=atmega32 USART.elf
@@ -61,10 +70,10 @@ sizedummy: USART.elf
 
 # Other Targets
 clean:
-	-$(RM) $(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) USART.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) USART.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(SIZEDUMMY)
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:

@@ -1,0 +1,11 @@
+#ifndef ERROR_STATUS_H_
+#define ERROR_STATUS_H_
+
+typedef enum ERRORS{
+	ER_MATHERROR,
+	ER_SYNTAXERROR,
+	ER_MATH_SYNTAX_OK,
+}Errors_t;
+
+
+#endif

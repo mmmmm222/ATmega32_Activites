@@ -1,0 +1,48 @@
+#ifndef SPI_CONFIG_H_
+#define SPI_CONFIG_H_
+
+/*
+ 	 choose SPI interrupt state
+ 	 - ENABLE
+ 	 - DISABLE
+
+ 	 if you choosed ENABLE => Do not forget to enable GIE
+*/
+#define SPI_INTERRUPT_STATE		ENABLE
+
+/*
+ 	 choose SPI state
+ 	 - ENABLE
+ 	 - DISABLE
+*/
+#define	SPI_STATE				ENABLE
+
+/*
+    Data Order
+	 When the DORD bit is written to one, the LSB of the data word is transmitted first.
+	 When the DORD bit is written to zero, the MSB of the data word is transmitted first.
+	options :
+	 LSB
+	 MSB
+*/
+#define DATA_ORDER	LSB
+
+/*
+	options :
+	MASTER
+	SLAVE
+
+*/
+
+
+#define SPI_ROLE	MASTER
+
+/*
+ 	 options :
+ 	 HIGH
+ 	 LOW
+
+*/
+#define Clock Polarity	HIGH
+
+#endif

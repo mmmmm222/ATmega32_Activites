@@ -1,0 +1,38 @@
+06:43:15 **** Incremental Build of configuration Debug for project Claculator ****
+make all 
+Building file: ../Keypad_Program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Keypad_Program.d" -MT"Keypad_Program.o" -c -o "Keypad_Program.o" "../Keypad_Program.c"
+Finished building: ../Keypad_Program.c
+ 
+Building target: Claculator.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Claculator.map -mmcu=atmega32 -o "Claculator.elf"  ./CLCD_Program.o ./Calculator_main.o ./DIO_Prog.o ./Keypad_Program.o   
+Finished building target: Claculator.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Claculator.elf  >"Claculator.lss"
+Finished building: Claculator.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Claculator.elf  "Claculator.hex"
+Finished building: Claculator.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Claculator.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   11576 bytes (35.3% Full)
+(.text + .data + .bootloader)
+
+Data:        390 bytes (19.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+06:43:15 Build Finished (took 346ms)
+

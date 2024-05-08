@@ -1,0 +1,22 @@
+/*
+ * USART_main.c
+ *
+ *  Created on: May 5, 2024
+ *      Author: moali
+ */
+
+
+void main(void)
+{
+	while(1)
+	{
+
+	}
+}
+
+void USART_INIT(void)
+{
+	//Receiver Enable
+
+	//Transmitter Enable
+}
