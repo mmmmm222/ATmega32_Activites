@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../CLCD_program.c \
 ../DIO_programe.c \
 ../GIE_program.c \
 ../PORT_program.c \
@@ -11,6 +12,7 @@ C_SRCS += \
 ../TWI_program.c 
 
 OBJS += \
+./CLCD_program.o \
 ./DIO_programe.o \
 ./GIE_program.o \
 ./PORT_program.o \
@@ -18,6 +20,7 @@ OBJS += \
 ./TWI_program.o 
 
 C_DEPS += \
+./CLCD_program.d \
 ./DIO_programe.d \
 ./GIE_program.d \
 ./PORT_program.d \

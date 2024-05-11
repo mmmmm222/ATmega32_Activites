@@ -1,11 +1,9 @@
-05:13:09 **** Incremental Build of configuration Debug for project TWI_Master ****
+06:58:47 **** Incremental Build of configuration Debug for project TWI_Master ****
 make all 
 Building file: ../TWI_Master_main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"TWI_Master_main.d" -MT"TWI_Master_main.o" -c -o "TWI_Master_main.o" "../TWI_Master_main.c"
-In file included from ../TWI_Master_main.c:16:
-k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-../TWI_Master_main.c:18: warning: return type of 'main' is not 'int'
+../TWI_Master_main.c:17: warning: return type of 'main' is not 'int'
 Finished building: ../TWI_Master_main.c
  
 Building target: TWI_Master.elf
@@ -27,7 +25,7 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    2862 bytes (8.7% Full)
+Program:    2850 bytes (8.7% Full)
 (.text + .data + .bootloader)
 
 Data:          0 bytes (0.0% Full)
@@ -37,5 +35,5 @@ Data:          0 bytes (0.0% Full)
 Finished building: sizedummy
  
 
-05:13:10 Build Finished (took 344ms)
+06:58:47 Build Finished (took 339ms)
 

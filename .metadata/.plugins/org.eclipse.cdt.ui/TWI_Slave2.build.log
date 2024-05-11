@@ -1,14 +1,14 @@
-05:14:56 **** Incremental Build of configuration Debug for project TWI_Slave2 ****
+07:04:28 **** Incremental Build of configuration Debug for project TWI_Slave2 ****
 make all 
 Building file: ../TWI_Slave2_main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"TWI_Slave2_main.d" -MT"TWI_Slave2_main.o" -c -o "TWI_Slave2_main.o" "../TWI_Slave2_main.c"
-../TWI_Slave2_main.c:36: warning: return type of 'main' is not 'int'
+../TWI_Slave2_main.c:22: warning: return type of 'main' is not 'int'
 Finished building: ../TWI_Slave2_main.c
  
 Building target: TWI_Slave2.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,TWI_Slave2.map -mmcu=atmega32 -o "TWI_Slave2.elf"  ./DIO_programe.o ./GIE_program.o ./PORT_program.o ./TWI_Slave2_main.o ./TWI_program.o   
+avr-gcc -Wl,-Map,TWI_Slave2.map -mmcu=atmega32 -o "TWI_Slave2.elf"  ./CLCD_program.o ./DIO_programe.o ./GIE_program.o ./PORT_program.o ./TWI_Slave2_main.o ./TWI_program.o   
 Finished building target: TWI_Slave2.elf
  
 Invoking: AVR Create Extended Listing
@@ -25,15 +25,15 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    2886 bytes (8.8% Full)
+Program:    7408 bytes (22.6% Full)
 (.text + .data + .bootloader)
 
-Data:          9 bytes (0.4% Full)
+Data:         46 bytes (2.2% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-05:14:56 Build Finished (took 335ms)
+07:04:28 Build Finished (took 399ms)
 

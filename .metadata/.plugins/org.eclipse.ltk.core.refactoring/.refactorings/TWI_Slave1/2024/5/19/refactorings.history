@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;TWI_Slave1/TWI_Slave2_main.c&apos; to &apos;TWI_Slave1_main.c&apos;" description="Rename resource &apos;TWI_Slave2_main.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="TWI_Slave2_main.c" name="TWI_Slave1_main.c" stamp="1715398559309" updateReferences="true"/>
+</session>

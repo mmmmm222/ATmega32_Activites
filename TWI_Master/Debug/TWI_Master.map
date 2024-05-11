@@ -116,7 +116,7 @@ LOAD k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gc
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xb2e
+.text           0x00000000      0xb22
  *(.vectors)
  .vectors       0x00000000       0x54 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -215,47 +215,47 @@ LOAD k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gc
  .text.PORT_voidInIt
                 0x00000488       0x42 ./PORT_program.o
                 0x00000488                PORT_voidInIt
- .text.main     0x000004ca      0x296 ./TWI_Master_main.o
+ .text.main     0x000004ca      0x28a ./TWI_Master_main.o
                 0x000004ca                main
  .text.TWI_voidInitMaster
-                0x00000760       0x4e ./TWI_program.o
-                0x00000760                TWI_voidInitMaster
+                0x00000754       0x4e ./TWI_program.o
+                0x00000754                TWI_voidInitMaster
  .text.TWI_voidInitSlave
-                0x000007ae       0x3a ./TWI_program.o
-                0x000007ae                TWI_voidInitSlave
+                0x000007a2       0x3a ./TWI_program.o
+                0x000007a2                TWI_voidInitSlave
  .text.TWI_SendStartCondition
-                0x000007e8       0x54 ./TWI_program.o
-                0x000007e8                TWI_SendStartCondition
+                0x000007dc       0x54 ./TWI_program.o
+                0x000007dc                TWI_SendStartCondition
  .text.TWI_SendRepeatedStart
-                0x0000083c       0x54 ./TWI_program.o
-                0x0000083c                TWI_SendRepeatedStart
+                0x00000830       0x54 ./TWI_program.o
+                0x00000830                TWI_SendRepeatedStart
  .text.TWI_SendSlaveAddressWithWrite
-                0x00000890       0x70 ./TWI_program.o
-                0x00000890                TWI_SendSlaveAddressWithWrite
+                0x00000884       0x70 ./TWI_program.o
+                0x00000884                TWI_SendSlaveAddressWithWrite
  .text.TWI_SendSlaveAddressWithRead
-                0x00000900       0x70 ./TWI_program.o
-                0x00000900                TWI_SendSlaveAddressWithRead
+                0x000008f4       0x70 ./TWI_program.o
+                0x000008f4                TWI_SendSlaveAddressWithRead
  .text.TWI_MasterWriteDataByte
-                0x00000970       0x52 ./TWI_program.o
-                0x00000970                TWI_MasterWriteDataByte
+                0x00000964       0x52 ./TWI_program.o
+                0x00000964                TWI_MasterWriteDataByte
  .text.TWI_MasterReadDataByte
-                0x000009c2       0x5e ./TWI_program.o
-                0x000009c2                TWI_MasterReadDataByte
+                0x000009b6       0x5e ./TWI_program.o
+                0x000009b6                TWI_MasterReadDataByte
  .text.TWI_SlaveWriteDataByte
-                0x00000a20       0x52 ./TWI_program.o
-                0x00000a20                TWI_SlaveWriteDataByte
+                0x00000a14       0x52 ./TWI_program.o
+                0x00000a14                TWI_SlaveWriteDataByte
  .text.TWI_SlaveReadDataByte
-                0x00000a72       0x8e ./TWI_program.o
-                0x00000a72                TWI_SlaveReadDataByte
+                0x00000a66       0x8e ./TWI_program.o
+                0x00000a66                TWI_SlaveReadDataByte
  .text.TWI_SendStopCondition
-                0x00000b00       0x2a ./TWI_program.o
-                0x00000b00                TWI_SendStopCondition
- .text.libgcc   0x00000b2a        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000b2a                . = ALIGN (0x2)
+                0x00000af4       0x2a ./TWI_program.o
+                0x00000af4                TWI_SendStopCondition
+ .text.libgcc   0x00000b1e        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000b1e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000b2a        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000b2a                exit
-                0x00000b2a                _exit
+ .fini9         0x00000b1e        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000b1e                exit
+                0x00000b1e                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -274,11 +274,11 @@ LOAD k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gc
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000b2a        0x4 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000b1e        0x4 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000b2e                _etext = .
+                0x00000b22                _etext = .
 
-.data           0x00800060        0x0 load address 0x00000b2e
+.data           0x00800060        0x0 load address 0x00000b22
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -309,8 +309,8 @@ LOAD k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gc
  *(.bss*)
  *(COMMON)
                 0x00800060                PROVIDE (__bss_end, .)
-                0x00000b2e                __data_load_start = LOADADDR (.data)
-                0x00000b2e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000b22                __data_load_start = LOADADDR (.data)
+                0x00000b22                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800060        0x0
                 0x00800060                PROVIDE (__noinit_start, .)
@@ -335,21 +335,21 @@ LOAD k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/bin/../lib/gc
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x123c
+.stab           0x00000000     0x1074
  *(.stab)
  .stab          0x00000000      0x450 ./DIO_programe.o
  .stab          0x00000450      0x144 ./GIE_program.o
                                 0x1bc (size before relaxing)
  .stab          0x00000594      0x168 ./PORT_program.o
                                 0x1e0 (size before relaxing)
- .stab          0x000006fc      0x3c0 ./TWI_Master_main.o
-                                0x438 (size before relaxing)
- .stab          0x00000abc      0x780 ./TWI_program.o
+ .stab          0x000006fc      0x1f8 ./TWI_Master_main.o
+                                0x270 (size before relaxing)
+ .stab          0x000008f4      0x780 ./TWI_program.o
                                 0x81c (size before relaxing)
 
-.stabstr        0x00000000      0xb25
+.stabstr        0x00000000      0x702
  *(.stabstr)
- .stabstr       0x00000000      0xb25 ./DIO_programe.o
+ .stabstr       0x00000000      0x702 ./DIO_programe.o
 
 .stab.excl
  *(.stab.excl)
