@@ -1,0 +1,41 @@
+05:13:09 **** Incremental Build of configuration Debug for project TWI_Master ****
+make all 
+Building file: ../TWI_Master_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"TWI_Master_main.d" -MT"TWI_Master_main.o" -c -o "TWI_Master_main.o" "../TWI_Master_main.c"
+In file included from ../TWI_Master_main.c:16:
+k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../TWI_Master_main.c:18: warning: return type of 'main' is not 'int'
+Finished building: ../TWI_Master_main.c
+ 
+Building target: TWI_Master.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TWI_Master.map -mmcu=atmega32 -o "TWI_Master.elf"  ./DIO_programe.o ./GIE_program.o ./PORT_program.o ./TWI_Master_main.o ./TWI_program.o   
+Finished building target: TWI_Master.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TWI_Master.elf  >"TWI_Master.lss"
+Finished building: TWI_Master.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TWI_Master.elf  "TWI_Master.hex"
+Finished building: TWI_Master.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TWI_Master.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2862 bytes (8.7% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+05:13:10 Build Finished (took 344ms)
+

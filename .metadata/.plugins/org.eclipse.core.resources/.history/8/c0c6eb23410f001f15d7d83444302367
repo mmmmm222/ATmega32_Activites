@@ -1,0 +1,26 @@
+/*
+ * TWI_Master_main.c
+ *
+ *  Created on: May 11, 2024
+ *      Author: moali
+ */
+
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
+#include "PORT_interface.h"
+#include "DIO_interface.h"
+#include "GIE_interface.h"
+#include "TWI_interface.h"
+
+
+void main()
+{
+	PORT_voidInIt();
+	GIE_voidEnable();
+	TWI_voidInitMaster();
+	TWI_SendStartCondition();
+	TWI_SendSlaveAddressWithWrite(100);
+
+}

@@ -1,0 +1,46 @@
+02:28:24 **** Incremental Build of configuration Debug for project SPI_Master ****
+make all 
+Building file: ../PORT_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"PORT_program.d" -MT"PORT_program.o" -c -o "PORT_program.o" "../PORT_program.c"
+Finished building: ../PORT_program.c
+ 
+Building file: ../SPI_Master_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"SPI_Master_main.d" -MT"SPI_Master_main.o" -c -o "SPI_Master_main.o" "../SPI_Master_main.c"
+In file included from ../SPI_Master_main.c:12:
+k:/courses/arm_course/arm_tools/imt_sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../SPI_Master_main.c:14: warning: return type of 'main' is not 'int'
+Finished building: ../SPI_Master_main.c
+ 
+Building target: SPI_Master.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,SPI_Master.map -mmcu=atmega32 -o "SPI_Master.elf"  ./DIO_programe.o ./GIE_program.o ./PORT_program.o ./SPI_Master_main.o ./SPI_program.o   
+Finished building target: SPI_Master.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S SPI_Master.elf  >"SPI_Master.lss"
+Finished building: SPI_Master.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SPI_Master.elf  "SPI_Master.hex"
+Finished building: SPI_Master.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 SPI_Master.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6510 bytes (19.9% Full)
+(.text + .data + .bootloader)
+
+Data:         17 bytes (0.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+02:28:24 Build Finished (took 459ms)
+

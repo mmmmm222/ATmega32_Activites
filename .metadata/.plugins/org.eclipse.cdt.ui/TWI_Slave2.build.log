@@ -1,0 +1,39 @@
+05:14:56 **** Incremental Build of configuration Debug for project TWI_Slave2 ****
+make all 
+Building file: ../TWI_Slave2_main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"TWI_Slave2_main.d" -MT"TWI_Slave2_main.o" -c -o "TWI_Slave2_main.o" "../TWI_Slave2_main.c"
+../TWI_Slave2_main.c:36: warning: return type of 'main' is not 'int'
+Finished building: ../TWI_Slave2_main.c
+ 
+Building target: TWI_Slave2.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TWI_Slave2.map -mmcu=atmega32 -o "TWI_Slave2.elf"  ./DIO_programe.o ./GIE_program.o ./PORT_program.o ./TWI_Slave2_main.o ./TWI_program.o   
+Finished building target: TWI_Slave2.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TWI_Slave2.elf  >"TWI_Slave2.lss"
+Finished building: TWI_Slave2.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TWI_Slave2.elf  "TWI_Slave2.hex"
+Finished building: TWI_Slave2.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TWI_Slave2.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2886 bytes (8.8% Full)
+(.text + .data + .bootloader)
+
+Data:          9 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+05:14:56 Build Finished (took 335ms)
+
